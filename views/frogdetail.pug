@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  if(toshow==null)
+    h2 No instance to Detail 
+  else 
+  - let frogid = toShow._id 
+  - let frog_type = toShow.age 
+  - let frogcost = toShow.color 
+  - let frogsize = toShow.lifeSpan 
+  div 
+    div.row 
+      div(class='frogStyle mr-3') Frog ID is: 
+      div #{frogid} 
+    div.row 
+      div(class='frogStyle mr-3') Frog age is: 
+      div #{frog_type} 
+    div.row 
+      div(class='frogStyle mr-3') Frog lifeSpan is: 
+      div #{frogsize} 
+    div.row 
+      div(class='frogStyle mr-3') Frog color is: 
+      div #{frogcost} 
