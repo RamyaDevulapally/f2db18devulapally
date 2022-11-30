@@ -2,13 +2,19 @@ extends layout
 block content
   h1= title
   //- let results=[{age:6, color:"green", lifeSpan:"20 years"},{age:5, color:"grey", lifeSpan:"15 years"},{age:8, color:"yellow", lifeSpan:"25 years"}]
+  - let Create = `dispatch(\"/frog/create\")`
+  button.btn( class="btn-primary ml-1", onclick= Create) Create
   - let items = results
   div(class="container-fluid") 
   div(class="row m-1") 
     each item in items  
-        - let destination = `dispatch(\"/frog/update?id=${item._id}\")` 
+        - let destination = `dispatch(\"/frog/update?id=${item._id}\")`
+        - let detail = `dispatch(\"/frog/detail?id=${item._id}\")`
+        - let Delete = `dispatch(\"/frog/delete?id=${item._id}\")`
         div(class="row-sm-2", class="m-1") Item #{item.age}(#{item.color}) is #{item.lifeSpan} 
           button.btn( class="btn-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn-primary ml-1", onclick= detail) Details
+          button.btn( class="btn-primary ml-1", onclick= Delete) Delete
    
   script. 
     function dispatch(path){ 

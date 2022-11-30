@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 const frogSchema = mongoose.Schema({
-age: Number,
+age:{
+    type:Number,
+    min: 4,
+    max: 15},
 color: String,
 lifeSpan: String
 })
