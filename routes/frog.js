@@ -29,12 +29,12 @@ module.exports = router;
 router.get('/detail', frog_controlers.frog_view_one_Page); 
 
 /* GET create frog page */ 
-router.get('/create', frog_controlers.frog_create_Page); 
+router.get('/create', secured, frog_controlers.frog_create_Page); 
  
 /* GET update costume page */ 
 router.get('/update', secured, frog_controlers.frog_update_Page); 
  
 
 /* GET delete frog page */ 
-router.get('/delete', frog_controlers.frog_delete_Page); 
+router.get('/delete', secured, frog_controlers.frog_delete_Page); 
 
